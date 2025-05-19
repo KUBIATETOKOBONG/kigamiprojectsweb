@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Story - Kigami Projects</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f5f0;
+      color: #333;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 20px;
+    }
+
+    header {
+      background-color: #4a2e14;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    .content-image {
+      width: 100%;
+      max-height: 350px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      cursor: pointer;
+    }
+
+    h2 {
+      color: #4a2e14;
+      font-size: 2rem;
+      margin-top: 20px;
+    }
+
+    p {
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+
+    a.back {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 10px 15px;
+      background-color: #4a2e14;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    footer {
+      text-align: center;
+      color: #777;
+      font-size: 0.9rem;
+      margin-top: 50px;
+      padding-top: 30px;
+      border-top: 1px solid #ddd;
+    }
+
+    /* Modal styling */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.85);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    .modal:target {
+      display: flex;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 2rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Our Story</h1>
+  </header>
+
+  <a href="#modal1">
+    <img src="images/our-story.jpeg" alt="Community and preloved items" class="content-image" />
+  </a>
+
+  <!-- Modal -->
+  <div id="modal1" class="modal">
+    <a href="#" class="modal-close">&times;</a>
+    <img src="images/our-story.jpeg" alt="Expanded Our Story Image" />
+  </div>
+
+  <h2>The Dream Behind Kigami Projects</h2>
+  <p>It started with a thought—what if the store could come to us?</p>
+  <p>We’re all busy. Work, school runs, bills, life. Most days, we don’t have time to visit local shops. Even when we do, the best finds are gone—or buried beneath things we don’t need.</p>
+  <p>We miss the good stuff. We don’t have time to scan every aisle, scroll every platform, or stand in queues.</p>
+  <p>So we asked: What if the community could shop from their phones? What if the good stuff came straight to your screen—every week, at a glance?</p>
+  <p>That’s how Kigami Projects was born. No app. No stress. Just one WhatsApp group. We post every Thursday. You scroll in minutes. Buy. Sell. Swap. All within reach.</p>
+  <p>It’s simple. It’s local. It’s smart. We’re cutting waste, saving money, and reviving lives—one item at a time.</p>
+  <p>Kigami isn’t a charity shop. It’s your neighbourhood, reimagined.</p>
+  <p><strong>Reuse. Reduce. Revive.</strong> Because your time matters. So does your community.</p>
+
+  <a href="index.html" class="back">Back to Home</a>
+
+  <footer>
+    &copy; 2025 Kigami Projects. All rights reserved.
+  </footer>
+
+</body>
+</html>

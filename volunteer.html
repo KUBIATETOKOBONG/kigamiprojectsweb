@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Join Our Team - Kigami</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f5f0;
+      color: #333;
+    }
+
+    header {
+      background-color: #0e0e0e;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    header h1 {
+      color: #ffffff;
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: #f3f1ef;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover,
+    nav a[aria-current="page"] {
+      color: #f39c12;
+    }
+
+    .form-section {
+      max-width: 600px;
+      margin: 40px auto 20px;
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .form-section h2 {
+      color: #4a2e14;
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+
+    .form-section p {
+      margin-bottom: 30px;
+      font-size: 1.1rem;
+      line-height: 1.5;
+      color: #555;
+    }
+
+    form label {
+      display: block;
+      text-align: left;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    form button {
+      margin-top: 25px;
+      background-color: #4a2e14;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease;
+      width: 100%;
+    }
+
+    form button:hover {
+      background-color: #3a2210;
+    }
+
+    .contact-info {
+      margin-top: 30px;
+      font-size: 0.95rem;
+      color: #050404;
+      text-align: left;
+    }
+
+    .contact-info p {
+      margin: 8px 0;
+    }
+
+    .contact-info a {
+      color: #4a2e14;
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    .back-button-container {
+      max-width: 600px;
+      margin: 30px auto 60px;
+      text-align: center;
+    }
+
+    .back-button-container a {
+      display: inline-block;
+      background-color: #4a2e14;
+      color: white;
+      padding: 12px 30px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-button-container a:hover {
+      background-color: #3a2210;
+    }
+
+    .team-image {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Kigami Projects</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html" aria-current="page">About</a>
+      <a href="volunteer.html">Volunteer</a>
+      <a href="community.html">Community</a>
+      <a href="donate-items.html">Donate Items</a>
+      <a href="donate-finances.html">Donate Finances</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="form-section">
+    <img src="images/your-team.jpg" alt="Our Team" class="team-image" />
+
+    <h2>Join the Kigami Team</h2>
+    <p>Interested in helping us grow? Fill in your details and we’ll be in touch.</p>
+
+    <form action="https://formspree.io/f/mnqkdjzr" method="POST">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="message">Why do you want to join us?</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <div class="contact-info">
+      <p>📧 Email: <a href="mailto:kigami.co@gmail.com">kigami.co@gmail.com</a></p>
+      <p>📸 Instagram: <a href="https://instagram.com/kigami.projects" target="_blank">@kigami.projects</a></p>
+      <p>🎵 TikTok: <a href="https://tiktok.com/@kigamiprojects" target="_blank">@kigamiprojects</a></p>
+    </div>
+  </section>
+
+  <div class="back-button-container">
+    <a href="index.html">← Back to Main Page</a>
+  </div>
+</body>
+</html>

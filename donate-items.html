@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Donate Items - Kigami</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f5f0;
+      color: #333;
+    }
+
+    header {
+      background-color: #0e0e0e;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    header h1 {
+      color: white;
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: #f3f1ef;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a[aria-current="page"] {
+      color: #f39c12;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 40px auto 20px;
+      padding: 0 20px;
+      text-align: center;
+      color: #333;
+    }
+
+    main h2 {
+      font-size: 2rem;
+      color: #4a2e14;
+      margin-bottom: 15px;
+    }
+
+    main p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    main a {
+      color: #4a2e14;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    main a:hover {
+      text-decoration: underline;
+    }
+
+    .image-grid {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 30px auto;
+      padding: 0 20px;
+      max-width: 1000px;
+    }
+
+    .image-grid img {
+      max-width: 250px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .image-grid img:hover {
+      transform: scale(1.05);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.85);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .modal:target {
+      display: flex;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 2rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .back-button-container {
+      text-align: center;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .back-button-container p {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .back-button-container a {
+      display: inline-block;
+      background-color: #4a2e14;
+      color: white;
+      padding: 12px 30px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-button-container a:hover {
+      background-color: #3a2210;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Kigami Projects</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="volunteer.html">Volunteer</a>
+      <a href="community.html">Community</a>
+      <a href="donate-items.html" aria-current="page">Donate Items</a>
+      <a href="donate-finances.html">Donate Finances</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Donate Items</h2>
+    <p>Got something to give? We accept gently used clothes, household goods, books, and more. Your donations help us serve others sustainably.</p>
+    <p>To donate items, reach out via <a href="mailto:kigami.co@gmail.com">email</a> or <a href="tel:+447894668543">call us</a>. We truly appreciate your support!</p>
+  </main>
+
+  <div class="image-grid">
+    <a href="#modal1"><img src="images/donate-clothes.jpg" alt="Donated clothes"></a>
+    <a href="#modal2"><img src="images/donate-household.jpg" alt="Household items"></a>
+    <a href="#modal3"><img src="images/donate-books.jpg" alt="Donated books"></a>
+  </div>
+
+  <!-- Modals -->
+  <div id="modal1" class="modal">
+    <a href="#" class="modal-close">&times;</a>
+    <img src="images/donate-clothes.jpg" alt="Donated clothes">
+  </div>
+
+  <div id="modal2" class="modal">
+    <a href="#" class="modal-close">&times;</a>
+    <img src="images/donate-household.jpg" alt="Household items">
+  </div>
+
+  <div id="modal3" class="modal">
+    <a href="#" class="modal-close">&times;</a>
+    <img src="images/donate-books.jpg" alt="Donated books">
+  </div>
+
+  <div class="back-button-container">
+    <p>Want to see more of what we do? Head back to our main page to learn about Kigami Projects and how you can contribute in other ways.</p>
+    <a href="index.html">← Back to Main Page</a>
+  </div>
+
+</body>
+</html>
