@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About Us – Kigami Projects</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #000;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+      font-size: 1rem;
+    }
+
+    nav a:hover {
+      color: #e74c3c;
+    }
+
+    main {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: white;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+      border-radius: 8px;
+    }
+
+    main h2 {
+      font-size: 2.2rem;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    main p {
+      font-size: 1.2rem;
+      margin-bottom: 1.2em;
+      color: #555;
+    }
+
+    .hero-image {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 25px;
+    }
+
+    footer {
+      background-color: #2c3e50;
+      color: #ecf0f1;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: #e74c3c;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .back-link {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .back-link a {
+      color: #442b14;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 10px;
+      }
+
+      nav a {
+        margin-bottom: 5px;
+        font-size: 1rem;
+      }
+
+      main {
+        padding: 20px 15px;
+        margin: 20px;
+      }
+
+      main h2 {
+        font-size: 1.6rem;
+      }
+
+      main p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Kigami Projects</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html" aria-current="page">About</a>
+      <a href="volunteer.html">Volunteer</a>
+      <a href="community.html">Community</a>
+      <a href="donate-items.html">Donate Items</a>
+      <a href="donate-finances.html">Donate Finances</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <img src="images/vibrant.jpg" alt="People engaging in a community initiative" class="hero-image" />
+    <h2>About Kigami</h2>
+    <p><strong>Kigami Projects</strong> is a community-focused initiative that makes it easier to shop and support sustainably. We curate and share local, preloved goods every Thursday, allowing members to shop via WhatsApp with ease.</p>
+    <p>Our goal is to foster a connected, resourceful community through donations, volunteering, and conscious consumption. We believe in making sustainability accessible and local, using familiar tools like WhatsApp to reach more people with less waste.</p>
+    <p>But Kigami is more than just a shopping platform — it's a movement rooted in environmental protection, creativity, and community empowerment. As a registered Scottish Charitable Incorporated Organisation (SCIO), we are committed to rethinking waste, promoting circular practices, and turning everyday actions into long-term impact.</p>
+    <p>Whether you're donating, shopping, or volunteering, you're helping build a future where sustainability is not just a goal, but a shared way of life.</p>
+  </main>
+
+  <div class="back-link">
+    <a href="index.html">← Back to Main Page</a>
+  </div>
+
+  <footer>
+    <p>Contact us: <a href="mailto:kigami.co@gmail.com">kigami.co@gmail.com</a> | <a href="tel:+447894668543">+44 7894 668543</a></p>
+    <p>&copy; 2025 Kigami Projects</p>
+  </footer>
+</body>
+</html>
