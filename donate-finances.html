@@ -2,14 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Donate Finances - Kigami Projects</title>
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
+    }
+
+    body {
       font-family: Arial, sans-serif;
       background-color: #fffaf5;
       color: #161514;
+      line-height: 1.6;
     }
 
     header {
@@ -17,6 +23,7 @@
       color: white;
       padding: 20px;
       text-align: center;
+      position: relative;
     }
 
     header h1 {
@@ -28,18 +35,85 @@
       margin-top: 10px;
     }
 
-    nav a {
+    .nav-list {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 0;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .nav-list li a {
       color: #f3f1ef;
       text-decoration: none;
-      margin: 0 10px;
       font-weight: bold;
       font-size: 1rem;
       transition: color 0.3s ease;
     }
 
-    nav a:hover,
-    nav a[aria-current="page"] {
+    .nav-list li a:hover,
+    .nav-list li a[aria-current="page"] {
       color: #f39c12;
+      outline: none;
+    }
+
+    .hamburger {
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: white;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      cursor: pointer;
+      display: none;
+    }
+
+    .hamburger:focus {
+      outline: 2px solid #f39c12;
+      outline-offset: 3px;
+    }
+
+    /* Mobile styles */
+    @media (max-width: 768px) {
+      .nav-list {
+        flex-direction: column;
+        align-items: center;
+        background-color: #0e0e0e;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+        border-top: 1px solid #333;
+        z-index: 999;
+      }
+
+      .nav-list.active {
+        max-height: 500px;
+      }
+
+      .nav-list li a {
+        padding: 10px 0;
+        width: 100%;
+        display: block;
+        text-align: center;
+        border-bottom: 1px solid #333;
+      }
+
+      .hamburger {
+        display: block;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .hamburger {
+        display: none;
+      }
     }
 
     main {
@@ -101,20 +175,35 @@
       padding: 15px;
       margin-top: 50px;
     }
+
+    main img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
   </style>
 </head>
 <body>
 
   <header>
     <h1>Kigami Projects</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="volunteer.html">Volunteer</a>
-      <a href="community.html">Community</a>
-      <a href="donate-items.html">Donate Items</a>
-      <a href="donate-finances.html" aria-current="page">Donate Finances</a>
-      <a href="contact.html">Contact</a>
+    <button 
+      class="hamburger" 
+      aria-label="Toggle menu" 
+      aria-expanded="false" 
+      aria-controls="primary-navigation"
+      onclick="toggleMenu()"
+    >☰</button>
+    <nav role="navigation" aria-label="Primary navigation">
+      <ul id="primary-navigation" class="nav-list" tabindex="-1">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="volunteer.html">Volunteer</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="donate-items.html">Donate Items</a></li>
+        <li><a href="donate-finances.html" aria-current="page">Donate Finances</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </nav>
   </header>
 
@@ -122,8 +211,7 @@
     <h1>Donate Finances</h1>
     <p>Your support keeps us going. Every contribution — big or small — helps us reach more people, build more sustainable initiatives, and grow our community.</p>
 
-    <img src="images/donate-impact.jpg" alt="Community members benefiting from donations" 
-         style="max-width: 100%; border-radius: 8px; margin: 20px 0;" />
+    <img src="images/donate-impact.jpg" alt="Community members benefiting from donations" />
 
     <p>Click the button below to make a secure donation through Selar:</p>
 
@@ -139,6 +227,24 @@
   <footer>
     &copy; 2025 Kigami Projects. All rights reserved.
   </footer>
+
+  <script>
+    function toggleMenu() {
+      const navList = document.getElementById('primary-navigation');
+      const hamburger = document.querySelector('.hamburger');
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      if (expanded) {
+        hamburger.setAttribute('aria-expanded', 'false');
+        navList.classList.remove('active');
+        navList.setAttribute('tabindex', '-1');
+      } else {
+        hamburger.setAttribute('aria-expanded', 'true');
+        navList.classList.add('active');
+        navList.setAttribute('tabindex', '0');
+        navList.focus();
+      }
+    }
+  </script>
 
 </body>
 </html>
