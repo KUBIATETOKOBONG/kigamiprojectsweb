@@ -5,21 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Donate Items - Kigami</title>
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
+    }
+
+    body {
       font-family: Arial, sans-serif;
       background-color: #f9f5f0;
       color: #333;
     }
 
+    /* --- Header/Nav styles (from About page) --- */
     header {
       background-color: #0e0e0e;
-      padding: 20px 0;
+      color: white;
+      padding: 20px;
       text-align: center;
+      position: relative;
     }
 
     header h1 {
-      color: white;
       margin: 0;
       font-size: 2rem;
     }
@@ -28,20 +35,87 @@
       margin-top: 10px;
     }
 
-    nav a {
+    .nav-list {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 0;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .nav-list li a {
       color: #f3f1ef;
       text-decoration: none;
-      margin: 0 10px;
       font-weight: bold;
       font-size: 1rem;
       transition: color 0.3s ease;
     }
 
-    nav a:hover,
-    nav a[aria-current="page"] {
+    .nav-list li a:hover,
+    .nav-list li a[aria-current="page"] {
       color: #f39c12;
+      outline: none;
     }
 
+    .hamburger {
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: white;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      cursor: pointer;
+      display: none;
+    }
+
+    .hamburger:focus {
+      outline: 2px solid #f39c12;
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-list {
+        flex-direction: column;
+        align-items: center;
+        background-color: #0e0e0e;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+        border-top: 1px solid #333;
+        z-index: 999;
+      }
+
+      .nav-list.active {
+        max-height: 500px;
+      }
+
+      .nav-list li a {
+        padding: 10px 0;
+        width: 100%;
+        display: block;
+        text-align: center;
+        border-bottom: 1px solid #333;
+      }
+
+      .hamburger {
+        display: block;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .hamburger {
+        display: none;
+      }
+    }
+
+    /* --- Page-specific styles --- */
     main {
       max-width: 800px;
       margin: 40px auto 20px;
@@ -164,14 +238,23 @@
 
   <header>
     <h1>Kigami Projects</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="volunteer.html">Volunteer</a>
-      <a href="community.html">Community</a>
-      <a href="donate-items.html" aria-current="page">Donate Items</a>
-      <a href="donate-finances.html">Donate Finances</a>
-      <a href="contact.html">Contact</a>
+    <button 
+      class="hamburger" 
+      aria-label="Toggle menu" 
+      aria-expanded="false" 
+      aria-controls="primary-navigation"
+      onclick="toggleMenu()"
+    >☰</button>
+    <nav role="navigation" aria-label="Primary navigation">
+      <ul id="primary-navigation" class="nav-list" tabindex="-1">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="volunteer.html">Volunteer</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="donate-items.html" aria-current="page">Donate Items</a></li>
+        <li><a href="donate-finances.html">Donate Finances</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </nav>
   </header>
 
@@ -189,17 +272,17 @@
 
   <!-- Modals -->
   <div id="modal1" class="modal">
-    <a href="#" class="modal-close">&times;</a>
+    <a href="#" class="modal-close" aria-label="Close modal">&times;</a>
     <img src="images/donate-clothes.jpg" alt="Donated clothes">
   </div>
 
   <div id="modal2" class="modal">
-    <a href="#" class="modal-close">&times;</a>
+    <a href="#" class="modal-close" aria-label="Close modal">&times;</a>
     <img src="images/donate-household.jpg" alt="Household items">
   </div>
 
   <div id="modal3" class="modal">
-    <a href="#" class="modal-close">&times;</a>
+    <a href="#" class="modal-close" aria-label="Close modal">&times;</a>
     <img src="images/donate-books.jpg" alt="Donated books">
   </div>
 
@@ -207,6 +290,24 @@
     <p>Want to see more of what we do? Head back to our main page to learn about Kigami Projects and how you can contribute in other ways.</p>
     <a href="index.html">← Back to Main Page</a>
   </div>
+
+  <script>
+    function toggleMenu() {
+      const navList = document.getElementById('primary-navigation');
+      const hamburger = document.querySelector('.hamburger');
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      if (expanded) {
+        hamburger.setAttribute('aria-expanded', 'false');
+        navList.classList.remove('active');
+        navList.setAttribute('tabindex', '-1');
+      } else {
+        hamburger.setAttribute('aria-expanded', 'true');
+        navList.classList.add('active');
+        navList.setAttribute('tabindex', '0');
+        navList.focus();
+      }
+    }
+  </script>
 
 </body>
 </html>
