@@ -4,56 +4,253 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact Us - Kigami Projects</title>
-</head>
-<body style="margin: 0; font-family: Arial, sans-serif; background-color: #fffaf5; color: #161514;">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  <header style="background-color: #0e0e0e; color: white; padding: 20px; text-align: center;">
-    <h1 style="margin: 0; font-size: 2rem;">Kigami Projects</h1>
-    <nav style="margin-top: 10px;">
-      <a href="index.html" style="color: #f3f1ef; text-decoration: none; margin: 0 10px; font-weight: bold;">Home</a>
-      <a href="about.html" style="color: #f3f1ef; text-decoration: none; margin: 0 10px;">About</a>
-      <a href="volunteer.html" style="color: #f3f1ef; text-decoration: none; margin: 0 10px;">Volunteer</a>
-      <a href="community.html" style="color: #f3f1ef; text-decoration: none; margin: 0 10px;">Community</a>
-      <a href="donate-items.html" style="color: #f3f1ef; text-decoration: none; margin: 0 10px;">Donate Items</a>
-      <a href="donate-finances.html" style="color: #f3f1ef; text-decoration: none; margin: 0 10px;">Donate Finances</a>
-      <a href="contact.html" style="color: #f39c12; text-decoration: none; margin: 0 10px;" aria-current="page">Contact</a>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fffaf5;
+      color: #161514;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #0e0e0e;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    .nav-list {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 0;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .nav-list li a {
+      color: #f3f1ef;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-list li a:hover,
+    .nav-list li a[aria-current="page"] {
+      color: #f39c12;
+      outline: none;
+    }
+
+    .hamburger {
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: white;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      cursor: pointer;
+      display: none;
+    }
+
+    .hamburger:focus {
+      outline: 2px solid #f39c12;
+      outline-offset: 3px;
+    }
+
+    /* Mobile styles */
+    @media (max-width: 768px) {
+      .nav-list {
+        flex-direction: column;
+        align-items: center;
+        background-color: #0e0e0e;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+        border-top: 1px solid #333;
+        z-index: 999;
+      }
+
+      .nav-list.active {
+        max-height: 500px;
+      }
+
+      .nav-list li a {
+        padding: 10px 0;
+        width: 100%;
+        display: block;
+        text-align: center;
+        border-bottom: 1px solid #333;
+      }
+
+      .hamburger {
+        display: block;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .hamburger {
+        display: none;
+      }
+    }
+
+    main {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: 40px auto;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    main h2 {
+      font-size: 2rem;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    main p, main ul {
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    main ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+
+    main ul li {
+      margin-bottom: 10px;
+    }
+
+    main ul li a {
+      color: #e74c3c;
+      text-decoration: none;
+      transition: text-decoration 0.3s;
+    }
+
+    main ul li a:hover {
+      text-decoration: underline;
+    }
+
+    main img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .back-link a {
+      color: #442b14;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    .back-link a:hover {
+      color: #8e5c2f;
+    }
+
+    footer {
+      background-color: #0e0e0e;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 50px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Kigami Projects</h1>
+    <button 
+      class="hamburger" 
+      aria-label="Toggle menu" 
+      aria-expanded="false" 
+      aria-controls="primary-navigation"
+      onclick="toggleMenu()"
+    >☰</button>
+    <nav role="navigation" aria-label="Primary navigation">
+      <ul id="primary-navigation" class="nav-list" tabindex="-1">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="volunteer.html">Volunteer</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="donate-items.html">Donate Items</a></li>
+        <li><a href="donate-finances.html">Donate Finances</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+      </ul>
     </nav>
   </header>
 
-  <main style="padding: 40px 20px; max-width: 800px; margin: 40px auto; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.05); border-radius: 8px;">
-    <h2 style="font-size: 2rem; color: #2c3e50; margin-bottom: 20px;">Contact Us</h2>
+  <main>
+    <h2>Contact Us</h2>
 
-    <img src="images/contact-team.jpg" alt="The Kigami Team" style="max-width: 100%; border-radius: 8px; margin-bottom: 20px;">
+    <img src="images/contact-team.jpg" alt="The Kigami Team">
 
-    <ul style="list-style: none; padding: 0; font-size: 1.1rem; color: #555;">
-      <li style="margin-bottom: 10px;">
-        <strong>Email:</strong> 
-        <a href="mailto:kigami.co@gmail.com" style="color: #e74c3c; text-decoration: none;">kigami.co@gmail.com</a>
-      </li>
-      <li style="margin-bottom: 10px;">
-        <strong>Phone:</strong> 
-        <a href="tel:+447894668543" style="color: #e74c3c; text-decoration: none;">+44 7894 668543</a>
-      </li>
-      <li style="margin-bottom: 10px;">
-        <strong>Instagram:</strong> 
-        <a href="https://instagram.com/kigami.projects" target="_blank" style="color: #e74c3c; text-decoration: none;">@kigami.projects</a>
-      </li>
-      <li style="margin-bottom: 10px;">
-        <strong>TikTok:</strong> 
-        <a href="https://tiktok.com/@kigamiprojects" target="_blank" style="color: #e74c3c; text-decoration: none;">@kigamiprojects</a>
-      </li>
+    <ul>
+      <li><strong>Email:</strong> <a href="mailto:kigami.co@gmail.com">kigami.co@gmail.com</a></li>
+      <li><strong>Phone:</strong> <a href="tel:+447894668543">+44 7894 668543</a></li>
+      <li><strong>Instagram:</strong> <a href="https://instagram.com/kigami.projects" target="_blank" rel="noopener noreferrer">@kigami.projects</a></li>
+      <li><strong>TikTok:</strong> <a href="https://tiktok.com/@kigamiprojects" target="_blank" rel="noopener noreferrer">@kigamiprojects</a></li>
     </ul>
 
-    <div style="text-align:center; margin-top: 30px;">
-      <a href="index.html" style="color: #442b14; text-decoration: none; font-weight: bold; font-size: 1rem;">
-        ← Back to Main Page
-      </a>
+    <div class="back-link">
+      <a href="index.html">← Back to Main Page</a>
     </div>
   </main>
 
-  <footer style="background-color: #0e0e0e; color: white; text-align: center; padding: 15px; margin-top: 50px;">
+  <footer>
     &copy; 2025 Kigami Projects. All rights reserved.
   </footer>
 
+  <script>
+    function toggleMenu() {
+      const navList = document.getElementById('primary-navigation');
+      const hamburger = document.querySelector('.hamburger');
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      if (expanded) {
+        hamburger.setAttribute('aria-expanded', 'false');
+        navList.classList.remove('active');
+        navList.setAttribute('tabindex', '-1');
+      } else {
+        hamburger.setAttribute('aria-expanded', 'true');
+        navList.classList.add('active');
+        navList.setAttribute('tabindex', '0');
+        navList.focus();
+      }
+    }
+  </script>
 </body>
 </html>
