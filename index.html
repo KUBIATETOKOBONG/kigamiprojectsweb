@@ -192,30 +192,30 @@
   <header>
     <img src="images/logo.png" alt="Kigami Projects Logo" />
     <nav>
-      <ul class="desktop-menu">
-        <li><a href="index.html" aria-current="page">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
+      <ul class="desktop-menu" role="menubar" aria-label="Primary navigation">
+        <li role="none"><a role="menuitem" href="index.html" aria-current="page">Home</a></li>
+        <li role="none"><a role="menuitem" href="about.html">About Us</a></li>
         <!-- Removed Our Story -->
-        <li><a href="volunteer.html">Volunteer</a></li>
-        <li><a href="community.html">Community</a></li>
-        <li><a href="donate-items.html">Donate Items</a></li>
-        <li><a href="donate-finances.html">Donate Finances</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li role="none"><a role="menuitem" href="volunteer.html">Volunteer</a></li>
+        <li role="none"><a role="menuitem" href="community.html">Community</a></li>
+        <li role="none"><a role="menuitem" href="donate-items.html">Donate Items</a></li>
+        <li role="none"><a role="menuitem" href="donate-finances.html">Donate Finances</a></li>
+        <li role="none"><a role="menuitem" href="contact.html">Contact</a></li>
       </ul>
-      <div class="hamburger" onclick="toggleMenu()">
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu" onclick="toggleMenu()">
         <div></div>
         <div></div>
         <div></div>
-      </div>
-      <ul class="mobile-menu" id="mobileMenu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
+      </button>
+      <ul class="mobile-menu" id="mobileMenu" role="menu" aria-label="Mobile Primary navigation">
+        <li role="none"><a role="menuitem" href="index.html">Home</a></li>
+        <li role="none"><a role="menuitem" href="about.html">About Us</a></li>
         <!-- Removed Our Story -->
-        <li><a href="volunteer.html">Volunteer</a></li>
-        <li><a href="community.html">Community</a></li>
-        <li><a href="donate-items.html">Donate Items</a></li>
-        <li><a href="donate-finances.html">Donate Finances</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li role="none"><a role="menuitem" href="volunteer.html">Volunteer</a></li>
+        <li role="none"><a role="menuitem" href="community.html">Community</a></li>
+        <li role="none"><a role="menuitem" href="donate-items.html">Donate Items</a></li>
+        <li role="none"><a role="menuitem" href="donate-finances.html">Donate Finances</a></li>
+        <li role="none"><a role="menuitem" href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -259,7 +259,17 @@
 
   <script>
     function toggleMenu() {
-      document.getElementById("mobileMenu").classList.toggle("show");
+      const menu = document.getElementById("mobileMenu");
+      const hamburger = document.querySelector(".hamburger");
+      const isExpanded = hamburger.getAttribute("aria-expanded") === "true";
+      if (isExpanded) {
+        menu.classList.remove("show");
+        hamburger.setAttribute("aria-expanded", "false");
+      } else {
+        menu.classList.add("show");
+        hamburger.setAttribute("aria-expanded", "true");
+        menu.querySelector("a").focus();
+      }
     }
   </script>
 </body>
