@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-  <link rel="stylesheet" href="style.css">
+
 <head>
   <meta charset="UTF-8" />
   <title>About Us – Kigami Projects</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="style.css">
+
   <style>
     * {
       box-sizing: border-box;
@@ -38,12 +41,12 @@
 
     .nav-list {
       list-style: none;
-      padding: 0;
-      margin: 10px 0 0;
       display: flex;
       justify-content: center;
       gap: 15px;
       flex-wrap: wrap;
+      margin: 10px 0 0;
+      padding: 0;
     }
 
     .nav-list li a {
@@ -51,13 +54,11 @@
       text-decoration: none;
       font-weight: bold;
       font-size: 1rem;
-      transition: color 0.3s ease;
     }
 
     .nav-list li a:hover,
     .nav-list li a[aria-current="page"] {
       color: #f39c12;
-      outline: none;
     }
 
     .hamburger {
@@ -70,15 +71,15 @@
       top: 20px;
       cursor: pointer;
       display: none;
+      z-index: 1000;
     }
 
-    .hamburger:focus {
-      outline: 2px solid #f39c12;
-      outline-offset: 3px;
-    }
-
-    /* Mobile styles */
+    /* MOBILE */
     @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+
       .nav-list {
         flex-direction: column;
         align-items: center;
@@ -92,10 +93,13 @@
         transition: max-height 0.3s ease-in-out;
         border-top: 1px solid #333;
         z-index: 999;
+
+        pointer-events: none;
       }
 
       .nav-list.active {
         max-height: 500px;
+        pointer-events: auto;
       }
 
       .nav-list li a {
@@ -104,17 +108,6 @@
         display: block;
         text-align: center;
         border-bottom: 1px solid #333;
-      }
-
-      .hamburger {
-        display: block;
-      }
-    }
-
-    /* Hide hamburger on larger screens */
-    @media (min-width: 769px) {
-      .hamburger {
-        display: none;
       }
     }
 
@@ -159,10 +152,6 @@
       text-decoration: none;
     }
 
-    footer a:hover {
-      text-decoration: underline;
-    }
-
     .back-link {
       text-align: center;
       margin: 20px 0;
@@ -172,29 +161,24 @@
       color: #442b14;
       text-decoration: none;
       font-weight: bold;
-      font-size: 1rem;
-    }
-
-    .back-link a:hover {
-      text-decoration: underline;
     }
   </style>
 </head>
+
 <body>
+
   <header>
     <h1>Kigami Projects</h1>
-    <button 
-      class="hamburger" 
-      aria-label="Toggle menu" 
-      aria-expanded="false" 
-      aria-controls="primary-navigation"
-      onclick="toggleMenu()"
-    >☰</button>
-    <nav role="navigation" aria-label="Primary navigation">
-      <ul id="primary-navigation" class="nav-list" tabindex="-1">
-       <li><a href="index.html">Home</a></li>
+
+    <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      ☰
+    </button>
+
+    <nav>
+      <ul id="primary-navigation" class="nav-list">
+        <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
-         <li><a href="our-story.html">Our Story</a></li>
+        <li><a href="our-story.html">Our Story</a></li>
         <li><a href="volunteer.html">Volunteer</a></li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="donations.html">Donations</a></li>
@@ -205,12 +189,16 @@
 
   <main>
     <img src="images/vibrant.jpg" alt="People engaging in a community initiative" class="hero-image" />
+
     <h2>About Kigami</h2>
-    <p><strong>Kigami Projects</strong> is a community-driven environmental initiative focused on creating cleaner, safer, and more responsible communities through practical action.
-</p>
+
+    <p><strong>Kigami Projects</strong> is a community-driven environmental initiative focused on creating cleaner, safer, and more responsible communities through practical action.</p>
+
     <p>From environmental clean-ups and bus stop restoration projects to upcycling and reuse initiatives, we work with communities to reduce waste, improve public spaces, and promote sustainable living.</p>
-    <p>We believe small actions create lasting change. By bringing people together, encouraging environmental responsibility, and giving overlooked spaces and materials a second life, we are building a culture of community pride, sustainability, and collective impact.</p>
-    <p>Whether you're donating, shopping, or volunteering, you're helping build a future where sustainability is not just a goal, but a shared way of life.</p>
+
+    <p>We believe small actions create lasting change. By bringing people together, encouraging environmental responsibility, and giving overlooked spaces and materials a second life, we are building a culture of community pride and sustainability.</p>
+
+    <p>Whether you're donating, shopping, or volunteering, you're helping build a future where sustainability is a shared way of life.</p>
   </main>
 
   <div class="back-link">
@@ -218,27 +206,27 @@
   </div>
 
   <footer>
-    <p>Contact us: <a href="mailto:admin@kigamiprojects.org">admin@kigamiprojects.org</a> | <a href="tel:+447894668543">+44 7894 668543</a></p>
+    <p>
+      Contact us:
+      <a href="mailto:admin@kigamiprojects.org">admin@kigamiprojects.org</a> |
+      <a href="tel:+447894668543">+44 7894 668543</a>
+    </p>
     <p>&copy; 2025 Kigami Projects</p>
   </footer>
 
   <script>
-    function toggleMenu() {
-      const navList = document.getElementById('primary-navigation');
-      const hamburger = document.querySelector('.hamburger');
+    const hamburger = document.querySelector('.hamburger');
+    const navList = document.getElementById('primary-navigation');
+
+    hamburger.addEventListener('click', () => {
       const expanded = hamburger.getAttribute('aria-expanded') === 'true';
-      if (expanded) {
-        hamburger.setAttribute('aria-expanded', 'false');
-        navList.classList.remove('active');
-        navList.setAttribute('tabindex', '-1');
-      } else {
-        hamburger.setAttribute('aria-expanded', 'true');
-        navList.classList.add('active');
-        navList.setAttribute('tabindex', '0');
-        navList.focus();
-      }
-    }
+
+      hamburger.setAttribute('aria-expanded', !expanded);
+      navList.classList.toggle('active');
+    });
   </script>
+
   <script src="script.js"></script>
 </body>
+
 </html>

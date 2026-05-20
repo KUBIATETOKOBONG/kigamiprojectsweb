@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +10,6 @@
   <link rel="stylesheet" href="style.css">
 
   <style>
-
-    /* HERO SECTION */
 
     .volunteer-hero {
       position: relative;
@@ -50,8 +49,6 @@
       font-size: 1.2rem;
     }
 
-    /* MAIN SECTION */
-
     .volunteer-container {
       max-width: 1100px;
       margin: auto;
@@ -65,39 +62,7 @@
       align-items: start;
     }
 
-    /* INFO CARD */
-
-    .info-card {
-      background: white;
-      padding: 40px;
-      border-radius: 25px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    }
-
-    .info-card h2 {
-      color: #1b5e20;
-      margin-bottom: 25px;
-      font-size: 2.2rem;
-    }
-
-    .info-card p {
-      margin-bottom: 20px;
-      line-height: 1.8;
-      color: #555;
-    }
-
-    .benefits {
-      margin-top: 30px;
-    }
-
-    .benefits li {
-      margin-bottom: 15px;
-      color: #444;
-      font-size: 1.05rem;
-    }
-
-    /* FORM CARD (GOOGLE FORM FIXED) */
-
+    .info-card,
     .form-card {
       background: white;
       padding: 40px;
@@ -105,55 +70,36 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
 
+    .info-card h2,
     .form-card h2 {
       color: #1b5e20;
       margin-bottom: 25px;
       font-size: 2rem;
     }
 
+    .info-card p,
     .form-card p {
-      margin-bottom: 15px;
       color: #555;
+      line-height: 1.8;
+      margin-bottom: 20px;
     }
 
-    /* GOOGLE FORM RESPONSIVE */
+    .benefits {
+      margin-top: 20px;
+      padding-left: 20px;
+    }
+
+    .benefits li {
+      margin-bottom: 15px;
+      color: #444;
+    }
 
     .google-form {
       width: 100%;
       height: 850px;
       border: none;
-      border-radius: 12px;
+      border-radius: 15px;
     }
-
-    /* CONTACT */
-
-    .contact-box {
-      margin-top: 40px;
-      background: #f4f7f4;
-      padding: 25px;
-      border-radius: 20px;
-    }
-
-    .contact-box h3 {
-      margin-bottom: 15px;
-      color: #1b5e20;
-    }
-
-    .contact-box p {
-      margin-bottom: 10px;
-    }
-
-    .contact-box a {
-      color: #2e7d32;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .contact-box a:hover {
-      text-decoration: underline;
-    }
-
-    /* BACK BUTTON */
 
     .back-home {
       text-align: center;
@@ -174,15 +120,16 @@
       transform: translateY(-2px);
     }
 
-    /* MOBILE */
-
     @media (max-width: 900px) {
+
       .volunteer-grid {
         grid-template-columns: 1fr;
       }
+
     }
 
     @media (max-width: 768px) {
+
       .volunteer-content h1 {
         font-size: 2.5rem;
       }
@@ -193,12 +140,13 @@
 
       .info-card,
       .form-card {
-        padding: 30px;
+        padding: 25px;
       }
 
       .google-form {
-        height: 900px;
+        height: 950px;
       }
+
     }
 
   </style>
@@ -214,22 +162,40 @@
     <div class="logo">
       <img src="images/logo.png" alt="Kigami Projects Logo">
     </div>
-
     <nav>
 
-      <ul class="desktop-menu">
+      <!-- DESKTOP MENU -->
 
+      <ul class="desktop-menu">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="our-story.html">Our Story</a></li>
-        <li><a href="volunteer.html">Volunteer</a></li>
+        <li><a href="volunteer.html" class="active">Volunteer</a></li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="donations.html">Donations</a></li>
         <li><a href="contact.html">Contact</a></li>
 
       </ul>
 
-      <button class="hamburger" onclick="toggleMenu()">☰</button>
+      <!-- HAMBURGER -->
+
+      <button class="hamburger" onclick="toggleMenu()">
+        ☰
+      </button>
+
+      <!-- MOBILE MENU -->
+
+      <ul class="mobile-menu" id="mobileMenu">
+
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="our-story.html">Our Story</a></li>
+        <li><a href="volunteer.html" class="active">Volunteer</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="donations.html">Donations</a></li>
+        <li><a href="contact.html">Contact</a></li>
+
+      </ul>
 
     </nav>
 
@@ -279,30 +245,26 @@
 
         <ul class="benefits">
 
-          <li>🌿 Environmental impact</li>
-          <li>🤝 Community connection</li>
-          <li>💡 Experience & teamwork</li>
-          <li>♻️ Sustainability projects</li>
+          <li>Environmental impact</li>
+          <li>Community connection</li>
+          <li>Experience and teamwork</li>
+          <li>Sustainability projects</li>
 
         </ul>
 
       </section>
 
-      <!-- GOOGLE FORM -->
+      <!-- FORM -->
 
       <section class="form-card">
 
         <h2>Volunteer Application</h2>
 
-        <p>Please fill in the form below to apply:</p>
+        <p>Please fill in the form below:</p>
 
         <iframe
           class="google-form"
-          src="https://docs.google.com/forms/d/e/1FAIpQLSfE0tky-7lk5Y2k8O2WOlc6-eNbNv8PJTDOumJ4C3e9_bs0Zg/viewform?embedded=true"
-          frameborder="0"
-          marginheight="0"
-          marginwidth="0"
-        >
+          src="https://docs.google.com/forms/d/e/1FAIpQLSfE0tky-7lk5Y2k8O2WOlc6-eNbNv8PJTDOumJ4C3e9_bs0Zg/viewform?embedded=true">
           Loading…
         </iframe>
 
@@ -312,11 +274,50 @@
 
     <div class="back-home">
 
-      <a href="index.html">← Back to Home</a>
+      <a href="index.html">
+        ← Back to Home
+      </a>
 
     </div>
 
   </main>
 
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="footer-content">
+
+      <div>
+        <h3>Kigami Projects</h3>
+
+        <p>
+          Building sustainable communities through environmental action.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <a href="about.html">About</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="volunteer.html">Volunteer</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div>
+        <p>Email: admin@kigamiprojects.org</p>
+        <p>Phone: +44 7894 668543</p>
+      </div>
+
+    </div>
+
+    <p class="copyright">
+      ©️ 2025 Kigami Projects. All rights reserved.
+    </p>
+
+  </footer>
+
+  <script src="script.js"></script>
+
 </body>
+
 </html>
