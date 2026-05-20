@@ -1,303 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Join Our Team - Kigami</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Volunteer | Kigami Projects</title>
+
+  <link rel="stylesheet" href="style.css">
+
   <style>
-    * {
-      margin: 0; 
-      padding: 0; 
-      box-sizing: border-box;
-    }
 
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f9f5f0;
-      color: #333;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+    /* HERO SECTION */
 
-    header {
-      background-color: #0e0e0e;
-      color: white;
-      padding: 20px;
-      text-align: center;
+    .volunteer-hero {
       position: relative;
+      height: 60vh;
+      overflow: hidden;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
+    .volunteer-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
-    nav {
-      margin-top: 10px;
-    }
-
-    .nav-list {
-      list-style: none;
-      padding: 0;
-      margin: 10px 0 0;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .nav-list li a {
-      color: #f3f1ef;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1rem;
-      transition: color 0.3s ease;
-    }
-
-    .nav-list li a:hover,
-    .nav-list li a[aria-current="page"] {
-      color: #f39c12;
-      outline: none;
-    }
-
-    .hamburger {
-      background: none;
-      border: none;
-      font-size: 1.8rem;
-      color: white;
+    .volunteer-overlay {
       position: absolute;
-      right: 20px;
-      top: 20px;
-      cursor: pointer;
-      display: none;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
     }
 
-    .hamburger:focus {
-      outline: 2px solid #f39c12;
-      outline-offset: 3px;
-    }
-
-    /* Mobile styles */
-    @media (max-width: 768px) {
-      .nav-list {
-        flex-direction: column;
-        align-items: center;
-        background-color: #0e0e0e;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        width: 100%;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease-in-out;
-        border-top: 1px solid #333;
-        z-index: 999;
-      }
-
-      .nav-list.active {
-        max-height: 500px;
-      }
-
-      .nav-list li a {
-        padding: 10px 0;
-        width: 100%;
-        display: block;
-        text-align: center;
-        border-bottom: 1px solid #333;
-      }
-
-      .hamburger {
-        display: block;
-      }
-    }
-
-    .form-section {
-      max-width: 600px;
-      margin: 40px auto 20px;
-      background: #fff;
-      padding: 30px 40px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    .volunteer-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       text-align: center;
+      color: white;
+      width: 90%;
+      max-width: 800px;
     }
 
-    .form-section h2 {
-      color: #4a2e14;
+    .volunteer-content h1 {
+      font-size: 4rem;
       margin-bottom: 20px;
-      font-size: 2rem;
     }
 
-    .form-section p {
-      margin-bottom: 30px;
-      font-size: 1.1rem;
-      line-height: 1.5;
+    .volunteer-content p {
+      font-size: 1.2rem;
+    }
+
+    /* MAIN SECTION */
+
+    .volunteer-container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 80px 30px;
+    }
+
+    .volunteer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    /* INFO CARD */
+
+    .info-card {
+      background: white;
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .info-card h2 {
+      color: #1b5e20;
+      margin-bottom: 25px;
+      font-size: 2.2rem;
+    }
+
+    .info-card p {
+      margin-bottom: 20px;
+      line-height: 1.8;
       color: #555;
     }
 
-    form label {
-      display: block;
-      text-align: left;
-      margin-top: 15px;
-      font-weight: bold;
-      color: #333;
-    }
-
-    form input,
-    form textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-      box-sizing: border-box;
-    }
-
-    form button {
-      margin-top: 25px;
-      background-color: #4a2e14;
-      color: white;
-      padding: 12px 25px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 1.1rem;
-      transition: background-color 0.3s ease;
-      width: 100%;
-    }
-
-    form button:hover,
-    form button:focus {
-      background-color: #3a2210;
-      outline: none;
-    }
-
-    .contact-info {
+    .benefits {
       margin-top: 30px;
-      font-size: 0.95rem;
-      color: #050404;
-      text-align: left;
     }
 
-    .contact-info p {
-      margin: 8px 0;
+    .benefits li {
+      margin-bottom: 15px;
+      color: #444;
+      font-size: 1.05rem;
     }
 
-    .contact-info a {
-      color: #4a2e14;
+    /* FORM CARD (GOOGLE FORM FIXED) */
+
+    .form-card {
+      background: white;
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .form-card h2 {
+      color: #1b5e20;
+      margin-bottom: 25px;
+      font-size: 2rem;
+    }
+
+    .form-card p {
+      margin-bottom: 15px;
+      color: #555;
+    }
+
+    /* GOOGLE FORM RESPONSIVE */
+
+    .google-form {
+      width: 100%;
+      height: 850px;
+      border: none;
+      border-radius: 12px;
+    }
+
+    /* CONTACT */
+
+    .contact-box {
+      margin-top: 40px;
+      background: #f4f7f4;
+      padding: 25px;
+      border-radius: 20px;
+    }
+
+    .contact-box h3 {
+      margin-bottom: 15px;
+      color: #1b5e20;
+    }
+
+    .contact-box p {
+      margin-bottom: 10px;
+    }
+
+    .contact-box a {
+      color: #2e7d32;
       text-decoration: none;
+      font-weight: 600;
     }
 
-    .contact-info a:hover,
-    .contact-info a:focus {
+    .contact-box a:hover {
       text-decoration: underline;
-      outline: none;
     }
 
-    .back-button-container {
-      max-width: 600px;
-      margin: 30px auto 60px;
+    /* BACK BUTTON */
+
+    .back-home {
       text-align: center;
+      margin-top: 60px;
     }
 
-    .back-button-container a {
+    .back-home a {
       display: inline-block;
-      background-color: #4a2e14;
+      padding: 14px 28px;
+      background: #111;
       color: white;
-      padding: 12px 30px;
       text-decoration: none;
-      border-radius: 5px;
-      font-size: 1.1rem;
-      transition: background-color 0.3s ease;
+      border-radius: 50px;
+      transition: 0.3s ease;
     }
 
-    .back-button-container a:hover,
-    .back-button-container a:focus {
-      background-color: #3a2210;
-      outline: none;
+    .back-home a:hover {
+      transform: translateY(-2px);
     }
 
-    .team-image {
-      max-width: 100%;
-      border-radius: 10px;
-      margin-bottom: 30px;
-    }
-  </style>
-</head>
-<body>
+    /* MOBILE */
 
-  <!-- Updated Header -->
-  <header>
-    <h1>Kigami Projects</h1>
-    <button 
-      class="hamburger" 
-      aria-label="Toggle menu" 
-      aria-expanded="false" 
-      aria-controls="primary-navigation"
-      onclick="toggleMenu()"
-    >☰</button>
-    <nav role="navigation" aria-label="Primary navigation">
-      <ul id="primary-navigation" class="nav-list" tabindex="-1">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="volunteer.html" aria-current="page">Volunteer</a></li>
-        <li><a href="community.html">Community</a></li>
-        <li><a href="donate-items.html">Donate Items</a></li>
-        <li><a href="donate-finances.html">Donate Finances</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- Join Form Section -->
-  <section class="form-section">
-    <img src="images/your-team.jpg" alt="Our Team" class="team-image" />
-    <h2>Join the Kigami Team</h2>
-    <p>Interested in helping us grow? Fill in your details and we’ll be in touch.</p>
-
-    <form action="https://getform.io/f/aqomnyga" method="POST">
-      <label for="name">Full Name:</label>
-      <input type="text" id="name" name="name" required autocomplete="name" />
-    
-      <label for="email">Email Address:</label>
-      <input type="email" id="email" name="email" required autocomplete="email" />
-    
-      <label for="message">Why do you want to join us?</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
-    
-      <button type="submit">Submit</button>
-    </form>    
-
-    <div class="contact-info">
-      <p>📧 Email: <a href="mailto:kigami.co@gmail.com">kigami.co@gmail.com</a></p>
-      <p>📸 Instagram: <a href="https://instagram.com/kigami.projects" target="_blank" rel="noopener noreferrer">@kigami.projects</a></p>
-      <p>🎵 TikTok: <a href="https://tiktok.com/@kigamiprojects" target="_blank" rel="noopener noreferrer">@kigamiprojects</a></p>
-    </div>
-  </section>
-
-  <div class="back-button-container">
-    <a href="index.html">← Back to Main Page</a>
-  </div>
-
-  <!-- Script for Menu Toggle -->
-  <script>
-    function toggleMenu() {
-      const navList = document.getElementById('primary-navigation');
-      const hamburger = document.querySelector('.hamburger');
-      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
-      if (expanded) {
-        hamburger.setAttribute('aria-expanded', 'false');
-        navList.classList.remove('active');
-        navList.setAttribute('tabindex', '-1');
-      } else {
-        hamburger.setAttribute('aria-expanded', 'true');
-        navList.classList.add('active');
-        navList.setAttribute('tabindex', '0');
-        navList.focus();
+    @media (max-width: 900px) {
+      .volunteer-grid {
+        grid-template-columns: 1fr;
       }
     }
-  </script>
+
+    @media (max-width: 768px) {
+      .volunteer-content h1 {
+        font-size: 2.5rem;
+      }
+
+      .volunteer-content p {
+        font-size: 1rem;
+      }
+
+      .info-card,
+      .form-card {
+        padding: 30px;
+      }
+
+      .google-form {
+        height: 900px;
+      }
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+
+    <div class="logo">
+      <img src="images/logo.png" alt="Kigami Projects Logo">
+    </div>
+
+    <nav>
+
+      <ul class="desktop-menu">
+
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="our-story.html">Our Story</a></li>
+        <li><a href="volunteer.html">Volunteer</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="donations.html">Donations</a></li>
+        <li><a href="contact.html">Contact</a></li>
+
+      </ul>
+
+      <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+    </nav>
+
+  </header>
+
+  <!-- HERO -->
+
+  <section class="volunteer-hero">
+
+    <div class="volunteer-overlay"></div>
+
+    <img src="images/your-team.jpg" alt="Kigami volunteer team">
+
+    <div class="volunteer-content">
+
+      <h1>Join Our Team</h1>
+
+      <p>
+        Help us create sustainable communities and make
+        a positive environmental impact together.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- MAIN -->
+
+  <main class="volunteer-container">
+
+    <div class="volunteer-grid">
+
+      <!-- INFO -->
+
+      <section class="info-card">
+
+        <h2>Why Volunteer With Us?</h2>
+
+        <p>
+          Kigami Projects is a growing community focused on sustainability,
+          recycling, and environmental action.
+        </p>
+
+        <p>
+          Join us to help make real impact in local communities.
+        </p>
+
+        <ul class="benefits">
+
+          <li>🌿 Environmental impact</li>
+          <li>🤝 Community connection</li>
+          <li>💡 Experience & teamwork</li>
+          <li>♻️ Sustainability projects</li>
+
+        </ul>
+
+      </section>
+
+      <!-- GOOGLE FORM -->
+
+      <section class="form-card">
+
+        <h2>Volunteer Application</h2>
+
+        <p>Please fill in the form below to apply:</p>
+
+        <iframe
+          class="google-form"
+          src="https://docs.google.com/forms/d/e/1FAIpQLSfE0tky-7lk5Y2k8O2WOlc6-eNbNv8PJTDOumJ4C3e9_bs0Zg/viewform?embedded=true"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+        >
+          Loading…
+        </iframe>
+
+      </section>
+
+    </div>
+
+    <div class="back-home">
+
+      <a href="index.html">← Back to Home</a>
+
+    </div>
+
+  </main>
 
 </body>
 </html>

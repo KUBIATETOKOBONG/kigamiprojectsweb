@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Donations | Kigami Projects</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:Arial, sans-serif;
+      background:#fffaf5;
+      color:#161514;
+      line-height:1.6;
+    }
+
+    header{
+      background:#0e0e0e;
+      color:white;
+      padding:20px;
+      text-align:center;
+      position:relative;
+    }
+
+    header h1{
+      font-size:2rem;
+    }
+
+    nav{
+      margin-top:10px;
+    }
+
+    .nav-list{
+      list-style:none;
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .nav-list li a{
+      color:#f3f1ef;
+      text-decoration:none;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    .nav-list li a:hover,
+    .nav-list li a[aria-current="page"]{
+      color:#f39c12;
+    }
+
+    .hamburger{
+      background:none;
+      border:none;
+      color:white;
+      font-size:1.8rem;
+      position:absolute;
+      right:20px;
+      top:20px;
+      cursor:pointer;
+      display:none;
+    }
+
+    @media(max-width:768px){
+
+      .hamburger{
+        display:block;
+      }
+
+      .nav-list{
+        flex-direction:column;
+        background:#0e0e0e;
+        position:absolute;
+        top:70px;
+        right:0;
+        width:100%;
+        max-height:0;
+        overflow:hidden;
+        transition:max-height 0.3s ease;
+        z-index:999;
+      }
+
+      .nav-list.active{
+        max-height:500px;
+      }
+
+      .nav-list li{
+        padding:15px 0;
+        border-bottom:1px solid #333;
+      }
+
+    }
+
+    main{
+      max-width:1100px;
+      margin:50px auto;
+      padding:20px;
+    }
+
+    .hero{
+      text-align:center;
+      margin-bottom:50px;
+    }
+
+    .hero h2{
+      font-size:2.5rem;
+      margin-bottom:20px;
+      color:#2c3e50;
+    }
+
+    .hero p{
+      font-size:1.1rem;
+      max-width:800px;
+      margin:auto;
+      color:#555;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:25px;
+      margin-top:40px;
+    }
+
+    .card{
+      background:white;
+      border-radius:12px;
+      padding:25px;
+      box-shadow:0 4px 15px rgba(0,0,0,0.08);
+      text-align:center;
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+    }
+
+    .card h3{
+      margin-bottom:15px;
+      color:#2c3e50;
+    }
+
+    .card p{
+      color:#555;
+      margin-bottom:15px;
+    }
+
+    ul{
+      list-style:none;
+      margin-top:10px;
+      color:#444;
+    }
+
+    ul li{
+      margin-bottom:8px;
+    }
+
+    .donate-btn{
+      display:inline-block;
+      margin-top:15px;
+      padding:12px 20px;
+      background:#442b14;
+      color:white;
+      text-decoration:none;
+      border-radius:8px;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    .donate-btn:hover{
+      background:#2e1d0a;
+    }
+
+    footer{
+      background:#0e0e0e;
+      color:white;
+      text-align:center;
+      padding:20px;
+      margin-top:60px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <h1>Kigami Projects</h1>
+
+  <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+  <nav>
+    <ul id="primary-navigation" class="nav-list">
+
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="our-story.html">Our Story</a></li>
+      <li><a href="volunteer.html">Volunteer</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="donations.html" aria-current="page">Donations</a></li>
+      <li><a href="contact.html">Contact</a></li>
+
+    </ul>
+  </nav>
+
+</header>
+
+<main>
+
+  <section class="hero">
+
+    <h2>Support Kigami Projects</h2>
+
+    <p>
+      Your support helps us run cleanups, community outreach,
+      upcycling projects, and sustainable initiatives.
+      Every contribution makes a real impact.
+    </p>
+
+  </section>
+
+  <section class="grid">
+
+    <div class="card">
+      <h3>Donate Items</h3>
+      <p>We accept gently used or reusable items:</p>
+      <ul>
+        <li>Clothes</li>
+        <li>Books</li>
+        <li>Household Items</li>
+        <li>Furniture</li>
+         <li>Garden/Cleaning Items</li>
+        <li>Reusable Materials</li>
+      </ul>
+      <p style="margin-top:10px;">Contact us via the Contact page to arrange drop-off / pickup.</p>
+    </div>
+
+    <div class="card">
+      <h3>Financial Support</h3>
+      <p>Support us directly through secure donations.</p>
+
+      <a
+        class="donate-btn"
+        href="https://selar.com/showlove/kigamiprojects"
+        target="_blank"
+      >
+        Donate Now
+      </a>
+    </div>
+
+    <div class="card">
+      <h3>Why Donate?</h3>
+      <p>
+        Donations help us clean communities, reduce waste,
+        and support sustainable living projects.
+      </p>
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+  &copy; 2025 Kigami Projects
+</footer>
+
+<script>
+
+function toggleMenu(){
+  document.getElementById("primary-navigation")
+  .classList.toggle("active");
+}
+
+</script>
+
+</body>
+</html>

@@ -1,185 +1,368 @@
 <!DOCTYPE html>
 <html lang="en">
+  <link rel="stylesheet" href="style.css">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Our Story - Kigami Projects</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Our Story | Kigami Projects</title>
+
+  <link rel="stylesheet" href="style.css">
+
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f9f5f0;
-      color: #333;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 20px;
+
+    /* PAGE HERO */
+
+    .story-hero {
+      position: relative;
+      height: 60vh;
+      overflow: hidden;
     }
 
-    header {
-      background-color: #4a2e14;
+    .story-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .story-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+    }
+
+    .story-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+
+      transform: translate(-50%, -50%);
+
+      text-align: center;
       color: white;
-      padding: 20px;
+
+      width: 90%;
+      max-width: 800px;
+    }
+
+    .story-content h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+    }
+
+    .story-content p {
+      font-size: 1.3rem;
+    }
+
+    /* MAIN STORY */
+
+    .story-container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 80px 30px;
+    }
+
+    .story-section {
+      background: white;
+      padding: 50px;
+      border-radius: 25px;
+
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .story-section h2 {
+      font-size: 2.5rem;
+      color: #1b5e20;
+      margin-bottom: 30px;
+    }
+
+    .story-section p {
+      font-size: 1.15rem;
+      margin-bottom: 25px;
+      line-height: 1.9;
+      color: #555;
+    }
+
+    .highlight {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #2e7d32;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    /* STORY IMAGE */
+
+    .story-image {
+      margin: 40px 0;
+      overflow: hidden;
+      border-radius: 20px;
+    }
+
+    .story-image img {
+      width: 100%;
+      display: block;
+
+      transition: transform 0.4s ease;
+    }
+
+    .story-image img:hover {
+      transform: scale(1.05);
+    }
+
+    /* CTA SECTION */
+
+    .story-cta {
+      margin-top: 80px;
+
+      background: linear-gradient(135deg, #2e7d32, #1b5e20);
+
+      color: white;
+
+      padding: 60px 40px;
+
+      border-radius: 30px;
+
       text-align: center;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-
-    .content-image {
-      width: 100%;
-      max-height: 350px;
-      object-fit: cover;
-      border-radius: 10px;
+    .story-cta h2 {
+      font-size: 2.8rem;
       margin-bottom: 20px;
-      cursor: pointer;
     }
 
-    h2 {
-      color: #4a2e14;
-      font-size: 2rem;
-      margin-top: 20px;
-    }
-
-    p {
-      line-height: 1.6;
+    .story-cta p {
+      max-width: 700px;
+      margin: auto;
+      margin-bottom: 30px;
       font-size: 1.1rem;
     }
 
-    a.back {
+    /* BUTTON */
+
+    .btn {
       display: inline-block;
-      margin-top: 30px;
-      padding: 10px 15px;
-      background-color: #4a2e14;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-    }
+      padding: 14px 30px;
 
-    footer {
-      text-align: center;
-      color: #777;
-      font-size: 0.9rem;
-      margin-top: 50px;
-      padding-top: 30px;
-      border-top: 1px solid #ddd;
-    }
+      background: white;
+      color: #1b5e20;
 
-    /* Modal styling */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 999;
-      left: 0;
-      top: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: rgba(0, 0, 0, 0.85);
-      justify-content: center;
-      align-items: center;
-    }
-
-    .modal img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 10px;
-    }
-
-    .modal:target {
-      display: flex;
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      color: white;
-      font-size: 2rem;
       text-decoration: none;
       font-weight: bold;
+
+      border-radius: 50px;
+
+      transition: 0.3s ease;
     }
 
-    /* Responsive adjustments */
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    /* MOBILE */
+
     @media (max-width: 768px) {
-      body {
-        padding: 15px;
+
+      .story-content h1 {
+        font-size: 2.5rem;
       }
 
-      header h1 {
-        font-size: 2rem;
-      }
-
-      h2 {
-        font-size: 1.6rem;
-      }
-
-      p {
+      .story-content p {
         font-size: 1rem;
       }
 
-      a.back {
-        padding: 8px 12px;
-        font-size: 0.95rem;
+      .story-section {
+        padding: 30px;
       }
+
+      .story-section h2 {
+        font-size: 2rem;
+      }
+
+      .story-cta h2 {
+        font-size: 2rem;
+      }
+
     }
 
-    @media (max-width: 480px) {
-      header h1 {
-        font-size: 1.8rem;
-      }
-
-      h2 {
-        font-size: 1.4rem;
-      }
-
-      p {
-        font-size: 0.95rem;
-      }
-
-      .modal img {
-        max-width: 95%;
-        max-height: 80%;
-      }
-
-      .modal-close {
-        font-size: 1.5rem;
-      }
-    }
   </style>
+
 </head>
+
 <body>
 
+  <!-- HEADER -->
+
   <header>
-    <h1>Our Story</h1>
+
+    <div class="logo">
+      <img src="images/logo.png" alt="Kigami Projects Logo">
+    </div>
+
+    <nav>
+
+      <ul class="desktop-menu">
+
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+         <li><a href="our-story.html">Our Story</a></li>
+        <li><a href="volunteer.html">Volunteer</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="donations.html">Donations</a></li>
+        <li><a href="contact.html">Contact</a></li>
+
+      </ul>
+
+      <button class="hamburger" onclick="toggleMenu()">
+        ☰
+      </button>
+
+      <ul class="mobile-menu" id="mobileMenu">
+
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+         <li><a href="our-story.html">Our Story</a></li>
+        <li><a href="volunteer.html">Volunteer</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="donations.html">Donations</a></li>
+        <li><a href="contact.html">Contact</a></li>
+
+      </ul>
+
+    </nav>
+
   </header>
 
-  <a href="#modal1">
-    <img src="images/our-story.jpeg" alt="Community and preloved items" class="content-image" />
-  </a>
+  <!-- HERO -->
 
-  <!-- Modal -->
-  <div id="modal1" class="modal">
-    <a href="#" class="modal-close">&times;</a>
-    <img src="images/our-story.jpeg" alt="Expanded Our Story Image" />
-  </div>
+  <section class="story-hero">
 
-  <h2>The Dream Behind Kigami Projects</h2>
-  <p>It started with a thought—what if the store could come to us?</p>
-  <p>We’re all busy. Work, school runs, bills, life. Most days, we don’t have time to visit local shops. Even when we do, the best finds are gone—or buried beneath things we don’t need.</p>
-  <p>We miss the good stuff. We don’t have time to scan every aisle, scroll every platform, or stand in queues.</p>
-  <p>So we asked: What if the community could shop from their phones? What if the good stuff came straight to your screen—every week, at a glance?</p>
-  <p>That’s how Kigami Projects was born. No app. No stress. Just one WhatsApp group. We post every Thursday. You scroll in minutes. Buy. Sell. Swap. All within reach.</p>
-  <p>It’s simple. It’s local. It’s smart. We’re cutting waste, saving money, and reviving lives—one item at a time.</p>
-  <p>Kigami isn’t a charity shop. It’s your neighbourhood, reimagined.</p>
-  <p><strong>Reuse. Reduce. Revive.</strong> Because your time matters. So does your community.</p>
+    <div class="story-overlay"></div>
 
-  <a href="index.html" class="back">Back to Home</a>
+    <img src="images/our-story.jpeg" alt="Kigami community story">
+
+    <div class="story-content">
+
+      <h1>Our Story</h1>
+
+      <p>
+        Reimagining local communities through sustainability,
+        reuse, and connection.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- MAIN STORY -->
+
+  <main class="story-container">
+
+    <section class="story-section">
+
+      <h2>The Dream Behind Kigami Projects</h2>
+
+      <p>
+        Kigami Projects was created from a desire to make communities cleaner, more responsible, and more connected through practical action.
+      </p>
+
+      <p>
+       We saw public spaces being neglected, waste being ignored, and useful items being thrown away while many people and communities still needed support. Instead of waiting for change, we decided to take action ourselves.
+      </p>
+
+      <div class="story-image">
+        <img src="images/our-story.jpeg" alt="Community and preloved items">
+      </div>
+
+      <p>
+        We are a community-driven environmental initiative focused on clean-up projects, sustainability awareness, reuse initiatives, and community engagement. Our work includes environmental clean-ups in streets, estates, parks, and public spaces, bus stop clean-up and restoration projects, charity shop initiatives, upcycling projects, and campaigns that encourage people to rethink waste and environmental responsibility.
+      </p>
+
+      <p>
+        Through our charity shop and reuse initiatives, we aim to give items a second life, reduce waste, and make affordable goods accessible within communities. Through upcycling, we turn discarded materials into something useful again, showing that sustainability can be practical, creative, and community-led.
+      </p>
+
+      <p>
+        Our bus stop clean-up projects were created to improve everyday public spaces that people use constantly but are often overlooked. By restoring and cleaning these spaces, we encourage pride, responsibility, and respect for the environment around us.
+      </p>
+
+      <p>
+       At the centre of Kigami Projects is community participation. We believe change happens faster when people work together. We actively involve young people, volunteers, organisations, and local communities in our activities to create visible impact and long-term awareness.
+       In a short time, our message and projects have reached thousands of people online, generating strong engagement and support across our social media platforms. This growing support reflects the need for practical environmental action that people can relate to and participate in directly.
+
+      </p>
+
+      <p>
+        Kigami Projects is not only about cleaning spaces. It is about building a movement that promotes environmental responsibility, sustainability, creativity, community support, and collective action.
+        We believe every cleaned street, restored bus stop, reused item, and upcycled project is a step towards stronger communities and a better environment for everyone.
+      </p>
+
+      <p class="highlight">
+        Reuse. Reduce. Revive.
+      </p>
+
+    </section>
+
+    <!-- CTA -->
+
+    <section class="story-cta">
+
+      <h2>Become Part of the Story</h2>
+
+      <p>
+        Join a growing movement focused on sustainability,
+        community empowerment, and environmental action.
+      </p>
+
+      <a href="gallery.html" class="btn">
+        Join Our Community
+      </a>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
 
   <footer>
-    &copy; 2025 Kigami Projects. All rights reserved.
+
+    <div class="footer-content">
+
+      <div>
+
+        <h3>Kigami Projects</h3>
+
+        <p>
+          Building sustainable communities through environmental action.
+        </p>
+
+      </div>
+
+      <div class="footer-links">
+
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+
+      </div>
+
+      <div>
+
+        <p>Email: admin@kigamiprojects.org</p>
+        <p>Phone: +44 7894 668543</p>
+
+      </div>
+
+    </div>
+
+    <p class="copyright">
+      © 2025 Kigami Projects. All rights reserved.
+    </p>
+
   </footer>
+
+  <script src="script.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gallery | Kigami Projects</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:Arial, sans-serif;
+      background:#fffaf5;
+      color:#161514;
+      line-height:1.6;
+    }
+
+    header{
+      background:#0e0e0e;
+      color:white;
+      padding:20px;
+      text-align:center;
+      position:relative;
+    }
+
+    header h1{
+      font-size:2rem;
+    }
+
+    nav{
+      margin-top:10px;
+    }
+
+    .nav-list{
+      list-style:none;
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .nav-list li a{
+      color:#f3f1ef;
+      text-decoration:none;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    .nav-list li a:hover,
+    .nav-list li a[aria-current="page"]{
+      color:#f39c12;
+    }
+
+    .hamburger{
+      background:none;
+      border:none;
+      color:white;
+      font-size:1.8rem;
+      position:absolute;
+      right:20px;
+      top:20px;
+      cursor:pointer;
+      display:none;
+    }
+
+    @media(max-width:768px){
+
+      .hamburger{
+        display:block;
+      }
+
+      .nav-list{
+        flex-direction:column;
+        background:#0e0e0e;
+        position:absolute;
+        top:70px;
+        right:0;
+        width:100%;
+        max-height:0;
+        overflow:hidden;
+        transition:max-height 0.3s ease;
+        z-index:999;
+      }
+
+      .nav-list.active{
+        max-height:500px;
+      }
+
+      .nav-list li{
+        padding:15px 0;
+        border-bottom:1px solid #333;
+      }
+
+    }
+
+    main{
+      max-width:1200px;
+      margin:50px auto;
+      padding:20px;
+    }
+
+    .hero-section{
+      text-align:center;
+      margin-bottom:50px;
+    }
+
+    .hero-section h2{
+      font-size:2.5rem;
+      margin-bottom:20px;
+      color:#2c3e50;
+    }
+
+    .hero-section p{
+      font-size:1.1rem;
+      max-width:800px;
+      margin:auto;
+      color:#555;
+    }
+
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+      margin-top:40px;
+    }
+
+    .gallery-card{
+      background:white;
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:0 4px 15px rgba(0,0,0,0.08);
+      transition:0.3s;
+    }
+
+    .gallery-card:hover{
+      transform:translateY(-5px);
+    }
+
+    .gallery-card img{
+      width:100%;
+      height:280px;
+      object-fit:cover;
+    }
+
+    .gallery-card p{
+      padding:15px;
+      font-weight:bold;
+      color:#333;
+      text-align:center;
+    }
+
+    .video-section{
+      margin-top:70px;
+    }
+
+    .video-section h3{
+      text-align:center;
+      font-size:2rem;
+      margin-bottom:30px;
+      color:#2c3e50;
+    }
+
+    .video-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:25px;
+    }
+
+    .video-card{
+      background:white;
+      padding:15px;
+      border-radius:12px;
+      box-shadow:0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    video{
+      width:100%;
+      border-radius:10px;
+    }
+
+    footer{
+      background:#0e0e0e;
+      color:white;
+      text-align:center;
+      padding:20px;
+      margin-top:60px;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<header>
+
+  <h1>Kigami Projects</h1>
+
+  <button
+    class="hamburger"
+    onclick="toggleMenu()"
+  >
+    ☰
+  </button>
+
+  <nav>
+
+    <ul id="primary-navigation" class="nav-list">
+
+      <li><a href="index.html">Home</a></li>
+
+      <li><a href="about.html">About</a></li>
+
+      <li><a href="our-story.html">Our Story</a></li>
+
+      <li><a href="volunteer.html">Volunteer</a></li>
+
+      <li><a href="gallery.html" aria-current="page">Gallery</a></li>
+
+      <li><a href="donations.html">Donations</a></li>
+
+      <li><a href="contact.html">Contact</a></li>
+
+    </ul>
+
+  </nav>
+
+</header>
+
+<main>
+
+  <section class="hero-section">
+
+    <h2>Our Gallery</h2>
+
+    <p>
+      Explore moments from our environmental cleanups,
+      community outreach projects, upcycling initiatives,
+      charity support activities, and sustainable actions
+      across our communities.
+    </p>
+
+  </section>
+
+  <section class="gallery-grid">
+
+    <div class="gallery-card">
+      <img src="images/gallery1.jpg" alt="Community Cleanup">
+      <p>Community Cleanup</p>
+    </div>
+
+    <div class="gallery-card">
+      <img src="images/gallery2.jpg" alt="Bus Stop Cleanup">
+      <p>Bus Stop Cleanup</p>
+    </div>
+
+    <div class="gallery-card">
+      <img src="images/gallery3.jpg" alt="Charity Shop">
+      <p>Charity Shop Initiative</p>
+    </div>
+
+    <div class="gallery-card">
+      <img src="images/gallery4.jpg" alt="Litter Picking Project">
+      <p>Litter Picking Project</p>
+    </div>
+
+  </section>
+
+  <section class="video-section">
+
+    <h3>Project Videos</h3>
+
+    <div class="video-grid">
+
+      <div class="video-card">
+
+        <video controls>
+          <source src="videos/project1.mp4" type="video/mp4">
+        </video>
+
+      </div>
+
+      <div class="video-card">
+
+        <video controls>
+          <source src="videos/project2.mp4" type="video/mp4">
+        </video>
+
+      </div>
+
+<div class="video-card">
+
+        <video controls>
+          <source src="videos/project3.mp4" type="video/mp4">
+        </video>
+
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+
+  &copy; 2025 Kigami Projects. All rights reserved.
+
+</footer>
+
+<script>
+
+function toggleMenu(){
+
+  const nav = document.getElementById("primary-navigation");
+
+  nav.classList.toggle("active");
+
+}
+
+</script>
+
+</body>
+</html>

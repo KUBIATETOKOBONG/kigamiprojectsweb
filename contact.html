@@ -1,256 +1,550 @@
 <!DOCTYPE html>
 <html lang="en">
+  <link rel="stylesheet" href="style.css">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us - Kigami Projects</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Contact Us | Kigami Projects</title>
+
+  <link rel="stylesheet" href="style.css">
+
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
 
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #fffaf5;
-      color: #161514;
-      line-height: 1.6;
-    }
+    /* HERO */
 
-    header {
-      background-color: #0e0e0e;
-      color: white;
-      padding: 20px;
-      text-align: center;
+    .contact-hero {
       position: relative;
+      height: 60vh;
+      overflow: hidden;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
+    .contact-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
-    nav {
-      margin-top: 10px;
-    }
-
-    .nav-list {
-      list-style: none;
-      padding: 0;
-      margin: 10px 0 0;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .nav-list li a {
-      color: #f3f1ef;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1rem;
-      transition: color 0.3s ease;
-    }
-
-    .nav-list li a:hover,
-    .nav-list li a[aria-current="page"] {
-      color: #f39c12;
-      outline: none;
-    }
-
-    .hamburger {
-      background: none;
-      border: none;
-      font-size: 1.8rem;
-      color: white;
+    .contact-overlay {
       position: absolute;
-      right: 20px;
-      top: 20px;
-      cursor: pointer;
-      display: none;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
     }
 
-    .hamburger:focus {
-      outline: 2px solid #f39c12;
-      outline-offset: 3px;
-    }
+    .contact-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
 
-    /* Mobile styles */
-    @media (max-width: 768px) {
-      .nav-list {
-        flex-direction: column;
-        align-items: center;
-        background-color: #0e0e0e;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        width: 100%;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease-in-out;
-        border-top: 1px solid #333;
-        z-index: 999;
-      }
+      transform: translate(-50%, -50%);
 
-      .nav-list.active {
-        max-height: 500px;
-      }
-
-      .nav-list li a {
-        padding: 10px 0;
-        width: 100%;
-        display: block;
-        text-align: center;
-        border-bottom: 1px solid #333;
-      }
-
-      .hamburger {
-        display: block;
-      }
-    }
-
-    @media (min-width: 769px) {
-      .hamburger {
-        display: none;
-      }
-    }
-
-    main {
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: 40px auto;
-      background: white;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      border-radius: 8px;
       text-align: center;
+      color: white;
+
+      width: 90%;
+      max-width: 850px;
     }
 
-    main h2 {
-      font-size: 2rem;
-      color: #2c3e50;
+    .contact-content h1 {
+      font-size: 4rem;
       margin-bottom: 20px;
     }
 
-    main p, main ul {
-      font-size: 1.1rem;
-      color: #555;
+    .contact-content p {
+      font-size: 1.2rem;
+      line-height: 1.8;
     }
 
-    main ul {
+    /* MAIN */
+
+    .contact-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 80px 30px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    /* CONTACT CARD */
+
+    .contact-card {
+      background: white;
+      padding: 45px;
+
+      border-radius: 25px;
+
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .contact-card h2 {
+      color: #1b5e20;
+      font-size: 2.3rem;
+      margin-bottom: 25px;
+    }
+
+    .contact-card p {
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 25px;
+    }
+
+    .contact-details {
       list-style: none;
       padding: 0;
+    }
+
+    .contact-details li {
       margin-bottom: 20px;
+      font-size: 1.05rem;
+      color: #444;
     }
 
-    main ul li {
-      margin-bottom: 10px;
-    }
-
-    main ul li a {
-      color: #e74c3c;
+    .contact-details a {
+      color: #2e7d32;
       text-decoration: none;
-      transition: text-decoration 0.3s;
+      font-weight: 600;
     }
 
-    main ul li a:hover {
+    .contact-details a:hover {
       text-decoration: underline;
     }
 
-    main img {
-      max-width: 100%;
-      border-radius: 8px;
-      margin-bottom: 20px;
+    /* IMAGE */
+
+    .contact-image img {
+      width: 100%;
+      border-radius: 25px;
+
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
 
-    .back-link {
+    /* FORM */
+
+    .contact-form-section {
+      margin-top: 80px;
+
+      background: white;
+
+      padding: 50px;
+
+      border-radius: 30px;
+
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .contact-form-section h2 {
       text-align: center;
-      margin-top: 30px;
+      color: #1b5e20;
+      font-size: 2.5rem;
+      margin-bottom: 15px;
     }
 
-    .back-link a {
-      color: #442b14;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1rem;
-      transition: color 0.3s;
-    }
-
-    .back-link a:hover {
-      color: #8e5c2f;
-    }
-
-    footer {
-      background-color: #0e0e0e;
-      color: white;
+    .contact-form-section p {
       text-align: center;
+      color: #666;
+      margin-bottom: 40px;
+    }
+
+    .contact-form {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 10px;
+
+      font-weight: 600;
+      color: #333;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+
       padding: 15px;
-      margin-top: 50px;
-      font-size: 0.9rem;
+
+      border: 1px solid #ddd;
+      border-radius: 15px;
+
+      font-size: 1rem;
+
+      transition: 0.3s ease;
     }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #2e7d32;
+
+      box-shadow: 0 0 0 3px rgba(46,125,50,0.15);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+    }
+
+    .submit-btn {
+      display: block;
+
+      width: 100%;
+
+      background: #2e7d32;
+      color: white;
+
+      border: none;
+      border-radius: 50px;
+
+      padding: 16px;
+
+      font-size: 1rem;
+      font-weight: bold;
+
+      cursor: pointer;
+
+      transition: 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background: #1b5e20;
+      transform: translateY(-2px);
+    }
+
+    /* BACK BUTTON */
+
+    .back-home {
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .back-home a {
+      display: inline-block;
+
+      background: #111;
+      color: white;
+
+      padding: 14px 28px;
+
+      border-radius: 50px;
+
+      text-decoration: none;
+
+      transition: 0.3s ease;
+    }
+
+    .back-home a:hover {
+      transform: translateY(-2px);
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 900px) {
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+    @media (max-width: 768px) {
+
+      .contact-content h1 {
+        font-size: 2.5rem;
+      }
+
+      .contact-content p {
+        font-size: 1rem;
+      }
+
+      .contact-card,
+      .contact-form-section {
+        padding: 30px;
+      }
+
+      .contact-form-section h2 {
+        font-size: 2rem;
+      }
+
+    }
+
   </style>
+
 </head>
+
 <body>
 
+  <!-- HEADER -->
+
   <header>
-    <h1>Kigami Projects</h1>
-    <button 
-      class="hamburger" 
-      aria-label="Toggle menu" 
-      aria-expanded="false" 
-      aria-controls="primary-navigation"
-      onclick="toggleMenu()"
-    >☰</button>
-    <nav role="navigation" aria-label="Primary navigation">
-      <ul id="primary-navigation" class="nav-list" tabindex="-1">
+
+    <div class="logo">
+      <img src="images/logo.png" alt="Kigami Projects Logo">
+    </div>
+
+    <nav>
+
+      <ul class="desktop-menu">
+
+       <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="our-story.html" class=>Our Story</a></li>
+        <li><a href="volunteer.html">Volunteer</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="donations.html">Donations</a></li>
+        <li><a href="contact.html">Contact</a></li>
+
+      </ul>
+
+      <button class="hamburger" onclick="toggleMenu()">
+        ☰
+      </button>
+
+      <ul class="mobile-menu" id="mobileMenu">
+
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
+        <li><a href="our-story.html">Our Story</a></li>
         <li><a href="volunteer.html">Volunteer</a></li>
-        <li><a href="community.html">Community</a></li>
-        <li><a href="donate-items.html">Donate Items</a></li>
-        <li><a href="donate-finances.html">Donate Finances</a></li>
-        <li><a href="contact.html" aria-current="page">Contact</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="donations.html">Donations</a></li>
+        <li><a href="contact.html">Contact</a></li>
+
       </ul>
+
     </nav>
+
   </header>
 
-  <main>
-    <h2>Contact Us</h2>
+  <!-- HERO -->
 
-    <img src="images/contact-team.jpg" alt="The Kigami Team">
+  <section class="contact-hero">
 
-    <ul>
-      <li><strong>Email:</strong> <a href="mailto:kigami.co@gmail.com">kigami.co@gmail.com</a></li>
-      <li><strong>Phone:</strong> <a href="tel:+447894668543">+44 7894 668543</a></li>
-      <li><strong>Instagram:</strong> <a href="https://instagram.com/kigami.projects" target="_blank" rel="noopener noreferrer">@kigami.projects</a></li>
-      <li><strong>TikTok:</strong> <a href="https://tiktok.com/@kigamiprojects" target="_blank" rel="noopener noreferrer">@kigamiprojects</a></li>
-    </ul>
+    <div class="contact-overlay"></div>
 
-    <div class="back-link">
-      <a href="index.html">← Back to Main Page</a>
+    <img src="images/contact-team.jpg" alt="Kigami Projects Team">
+
+    <div class="contact-content">
+
+      <h1>Get In Touch</h1>
+
+      <p>
+        We'd love to hear from you. Whether you want to volunteer,
+        donate, collaborate, or simply learn more about Kigami Projects,
+        our team is here to help.
+      </p>
+
     </div>
+
+  </section>
+
+  <!-- MAIN -->
+
+  <main class="contact-container">
+
+    <div class="contact-grid">
+
+      <!-- CONTACT INFO -->
+
+      <section class="contact-card">
+
+        <h2>Contact Information</h2>
+
+        <p>
+          Reach out to us through any of the platforms below.
+          We aim to respond as quickly as possible.
+        </p>
+
+        <ul class="contact-details">
+
+          <li>
+            📧 Email:
+            <a href="mailto:admin@kigamiprojects.org">
+              admin@kigamiprojects.org
+            </a>
+          </li>
+
+          <li>
+            📞 Phone:
+            <a href="tel:+447894668543">
+              +44 7894 668543
+            </a>
+          </li>
+
+          <li>
+            📸 Instagram:
+            <a
+              href="https://instagram.com/kigami.projects"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @kigami.projects
+            </a>
+          </li>
+           <li>
+             📘 Facebook:
+            <a
+              href="https://www.facebook.com/kigamiprojects"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @kigami.projects
+            </a>
+          </li>
+
+          <li>
+            🎵 TikTok:
+            <a
+              href="https://tiktok.com/@kigamiprojects"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @kigamiprojects
+            </a>
+          </li>
+
+        </ul>
+
+      </section>
+
+      <!-- IMAGE -->
+
+      <section class="contact-image">
+
+        <img
+          src="images/community.jpg"
+          alt="Community members at Kigami Projects"
+        >
+
+      </section>
+
+    </div>
+
+    <!-- CONTACT FORM -->
+
+    <section class="contact-form-section">
+
+      <h2>Send Us A Message</h2>
+
+      <p>
+        Have questions or ideas? Fill out the form below and
+        we'll get back to you soon.
+      </p>
+
+      <form
+        class="contact-form"
+        action="https://getform.io/f/aqomnyga"
+        method="POST"
+      >
+
+        <div class="form-group">
+
+          <label for="name">Full Name</label>
+
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+          >
+
+        </div>
+
+        <div class="form-group">
+
+          <label for="email">Email Address</label>
+
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+          >
+
+        </div>
+
+        <div class="form-group">
+
+          <label for="message">Your Message</label>
+
+          <textarea
+            id="message"
+            name="message"
+            rows="6"
+            required
+          ></textarea>
+
+        </div>
+
+        <button type="submit" class="submit-btn">
+          Send Message
+        </button>
+
+      </form>
+
+    </section>
+
+    <!-- BACK -->
+
+    <div class="back-home">
+
+      <a href="index.html">
+        ← Back to Home
+      </a>
+
+    </div>
+
   </main>
 
+  <!-- FOOTER -->
+
   <footer>
-    &copy; 2025 Kigami Projects. All rights reserved.
+
+    <div class="footer-content">
+
+      <div>
+
+        <h3>Kigami Projects</h3>
+
+        <p>
+          Building sustainable communities through environmental action.
+        </p>
+
+      </div>
+
+      <div class="footer-links">
+
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+
+      </div>
+
+      <div>
+
+        <p>Email: admin@kigamiprojects.org</p>
+        <p>Phone: +44 7894 668543</p>
+
+      </div>
+
+    </div>
+
+    <p class="copyright">
+      © 2025 Kigami Projects. All rights reserved.
+    </p>
+
   </footer>
 
-  <script>
-    function toggleMenu() {
-      const navList = document.getElementById('primary-navigation');
-      const hamburger = document.querySelector('.hamburger');
-      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
-      if (expanded) {
-        hamburger.setAttribute('aria-expanded', 'false');
-        navList.classList.remove('active');
-        navList.setAttribute('tabindex', '-1');
-      } else {
-        hamburger.setAttribute('aria-expanded', 'true');
-        navList.classList.add('active');
-        navList.setAttribute('tabindex', '0');
-        navList.focus();
-      }
-    }
-  </script>
+  <script src="script.js"></script>
+
 </body>
 </html>
