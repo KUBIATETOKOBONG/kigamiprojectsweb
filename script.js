@@ -1,6 +1,8 @@
-function toggleMenu() {
-  const navList = document.getElementById('primary-navigation');
-  const hamburger = document.querySelector('.hamburger');
+ffunction toggleMenu() {
+  const menu = document.getElementById('mobileMenu');
+
+  menu.classList.toggle('show');
+}
 
   const expanded =
     hamburger.getAttribute('aria-expanded') === 'true';

@@ -429,3 +429,10 @@ footer {
     font-size: 0.9rem;
   }
 }
+.mobile-menu {
+  display: none;
+}
+
+.mobile-menu.show {
+  display: flex;
+}
