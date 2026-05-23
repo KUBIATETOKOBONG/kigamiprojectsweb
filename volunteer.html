@@ -259,38 +259,48 @@
 
     /* MOBILE */
 
-    @media (max-width: 768px) {
+   @media (max-width: 900px) {
 
-      .volunteer-content h1 {
-        font-size: 2.5rem;
-      }
+  .main-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
 
-      .volunteer-content p {
-        font-size: 1rem;
-      }
+}
 
-      .info-card,
-      .form-card {
-        padding: 25px;
-      }
+@media (max-width: 768px) {
 
-      .google-form {
-        height: 950px;
-      }
+  .volunteer-content h1 {
+    font-size: 2.3rem;
+  }
 
-      .new-section img {
-        height: 180px;
-      }
+  .volunteer-content p {
+    font-size: 1rem;
+  }
 
-      .new-section-content {
-        padding: 25px;
-      }
+  .info-card,
+  .form-card {
+    padding: 20px;
+  }
 
-      .new-section h2 {
-        font-size: 1.6rem;
-      }
+  .community-card img {
+    height: 220px;
+  }
 
-    }
+  .google-form {
+    height: 380px;
+  }
+
+  .new-section-content,
+  .community-content {
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+}
 
   </style>
 
