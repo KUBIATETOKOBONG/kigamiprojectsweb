@@ -1,7 +1,9 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,6 +12,8 @@
   <link rel="stylesheet" href="style.css">
 
   <style>
+
+    /* HERO */
 
     .volunteer-hero {
       position: relative;
@@ -47,25 +51,31 @@
 
     .volunteer-content p {
       font-size: 1.2rem;
+      line-height: 1.8;
     }
 
+    /* MAIN */
+
     .volunteer-container {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: auto;
-      padding: 80px 30px;
+      padding: 80px 25px;
     }
 
     .volunteer-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 50px;
+      gap: 40px;
       align-items: start;
+      margin-bottom: 60px;
     }
+
+    /* CARDS */
 
     .info-card,
     .form-card {
       background: white;
-      padding: 40px;
+      padding: 35px;
       border-radius: 25px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
@@ -73,33 +83,150 @@
     .info-card h2,
     .form-card h2 {
       color: #1b5e20;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
       font-size: 2rem;
     }
 
     .info-card p,
-    .form-card p {
-      color: #555;
-      line-height: 1.8;
-      margin-bottom: 20px;
-    }
+    .info-card,
+.form-card {
+  background: white;
+  padding: 35px;
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.form-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
     .benefits {
-      margin-top: 20px;
       padding-left: 20px;
+      margin-top: 20px;
     }
 
     .benefits li {
-      margin-bottom: 15px;
+      margin-bottom: 12px;
       color: #444;
     }
 
-    .google-form {
-      width: 100%;
-      height: 850px;
-      border: none;
-      border-radius: 15px;
+   .google-form {
+  width: 100%;
+  height: 420px;
+  border: none;
+  border-radius: 15px;
+}
+/* COMMUNITY BUTTON */
+
+.community-btn {
+  display: inline-block;
+
+  margin-top: 15px;
+
+  padding: 12px 24px;
+
+  background: #2e7d32;
+
+  color: white;
+
+  text-decoration: none;
+
+  border-radius: 50px;
+
+  font-weight: 600;
+
+  transition: 0.3s ease;
+}
+
+.community-btn:hover {
+  background: #1b5e20;
+  transform: translateY(-2px);
+}
+/* LITTLE CHAMPIONS BUTTON */
+
+.little-champions-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 24px;
+  background: #2e7d32;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.little-champions-btn:hover {
+  background: #1b5e20;
+  transform: translateY(-2px);
+}
+
+    /* PROFESSIONAL SECTIONS */
+
+    .new-section {
+      margin-top: 50px;
+
+      background: white;
+
+      border-radius: 22px;
+
+      overflow: hidden;
+
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+
+      max-width: 900px;
+
+      margin-left: auto;
+      margin-right: auto;
+
+      transition: 0.3s ease;
     }
+
+    .new-section:hover {
+      transform: translateY(-4px);
+    }
+
+    .new-section img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+    }
+
+    .new-section-content {
+      padding: 35px;
+    }
+
+    .new-section h2 {
+      color: #1b5e20;
+      margin-bottom: 18px;
+      font-size: 2rem;
+    }
+
+    .new-section h3 {
+      color: #2e7d32;
+      margin-top: 22px;
+      margin-bottom: 12px;
+    }
+
+    .new-section p {
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .new-section ul {
+      padding-left: 20px;
+      margin-bottom: 20px;
+    }
+
+    .new-section li {
+      margin-bottom: 10px;
+      color: #444;
+    }
+
+    /* BACK BUTTON */
 
     .back-home {
       text-align: center;
@@ -120,6 +247,8 @@
       transform: translateY(-2px);
     }
 
+    /* TABLET */
+
     @media (max-width: 900px) {
 
       .volunteer-grid {
@@ -127,6 +256,8 @@
       }
 
     }
+
+    /* MOBILE */
 
     @media (max-width: 768px) {
 
@@ -147,6 +278,18 @@
         height: 950px;
       }
 
+      .new-section img {
+        height: 180px;
+      }
+
+      .new-section-content {
+        padding: 25px;
+      }
+
+      .new-section h2 {
+        font-size: 1.6rem;
+      }
+
     }
 
   </style>
@@ -162,17 +305,25 @@
     <div class="logo">
       <img src="images/logo.png" alt="Kigami Projects Logo">
     </div>
+
     <nav>
 
       <!-- DESKTOP MENU -->
 
       <ul class="desktop-menu">
+
         <li><a href="index.html">Home</a></li>
+
         <li><a href="about.html">About</a></li>
+
         <li><a href="our-story.html">Our Story</a></li>
+
         <li><a href="volunteer.html" class="active">Volunteer</a></li>
+
         <li><a href="gallery.html">Gallery</a></li>
+
         <li><a href="donations.html">Donations</a></li>
+
         <li><a href="contact.html">Contact</a></li>
 
       </ul>
@@ -188,11 +339,17 @@
       <ul class="mobile-menu" id="mobileMenu">
 
         <li><a href="index.html">Home</a></li>
+
         <li><a href="about.html">About</a></li>
+
         <li><a href="our-story.html">Our Story</a></li>
+
         <li><a href="volunteer.html" class="active">Volunteer</a></li>
+
         <li><a href="gallery.html">Gallery</a></li>
+
         <li><a href="donations.html">Donations</a></li>
+
         <li><a href="contact.html">Contact</a></li>
 
       </ul>
@@ -226,6 +383,8 @@
 
   <main class="volunteer-container">
 
+    <!-- TOP GRID -->
+
     <div class="volunteer-grid">
 
       <!-- INFO -->
@@ -240,14 +399,18 @@
         </p>
 
         <p>
-          Join us to help make real impact in local communities.
+          Join us to help create real impact in local communities
+          while building teamwork, confidence, and positive change.
         </p>
 
         <ul class="benefits">
 
           <li>Environmental impact</li>
+
           <li>Community connection</li>
+
           <li>Experience and teamwork</li>
+
           <li>Sustainability projects</li>
 
         </ul>
@@ -272,6 +435,111 @@
 
     </div>
 
+    <!-- COMMUNITY PROGRAMMES -->
+
+<div class="community-grid">
+
+  <!-- BUSINESS CLEAN SUPPORT -->
+
+  <section class="new-section">
+
+    <img src="images/business-clean.jpg" alt="Business Clean Support">
+
+    <div class="new-section-content">
+
+      <h2>Kigami Business Clean Support</h2>
+
+      <p>
+        Kigami Projects works with local businesses to help create cleaner,
+        safer, and more environmentally responsible communities.
+      </p>
+
+      <h3>Our services include:</h3>
+
+      <ul>
+
+        <li>Litter picking and environmental maintenance</li>
+
+        <li>Bus stop cleaning and public space care</li>
+
+        <li>Waste awareness and sustainability support</li>
+
+        <li>Community engagement sessions</li>
+
+        <li>Staff clean-up activities</li>
+
+      </ul>
+
+      <h3>We work with:</h3>
+
+      <ul>
+
+        <li>Shops and cafés</li>
+
+        <li>Schools and offices</li>
+
+        <li>Community organisations</li>
+
+      </ul>
+
+      <p>
+        Businesses can request one-off clean-up support,
+        awareness sessions, and community partnership activities.
+      </p>
+<a href="contact.html" class="community-btn">
+  Contact Us
+</a>
+    </div>
+
+  </section>
+
+  <!-- LITTLE GREEN CHAMPIONS -->
+
+  <section class="new-section">
+
+    <img src="images/little-green-champions.jpg" alt="Little Green Champions">
+
+    <div class="new-section-content">
+
+      <h2>Little Green Champions</h2>
+
+      <p>
+        A fun programme encouraging children and families
+        to care for the environment through community clean-up activities.
+      </p>
+
+      <h3>Champions can:</h3>
+
+      <ul>
+
+        <li>Join family-friendly clean-ups</li>
+
+        <li>Help improve local spaces</li>
+
+        <li>Earn certificates and recognition</li>
+
+        <li>Become part of positive community change</li>
+
+      </ul>
+
+      <p>
+        The programme teaches teamwork, environmental responsibility,
+        and community pride while making outdoor activities fun and rewarding.
+       </p> Want your child to become a Little Green Champion?
+Join one of our upcoming community clean-up activities and become part of the movement for cleaner communities.
+      </p>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSfE0tky-7lk5Y2k8O2WOlc6-eNbNv8PJTDOumJ4C3e9_bs0Zg/viewform"
+   target="_blank"
+   class="little-champions-btn">
+  Join Little Champions
+</a>
+    </div>
+
+  </section>
+
+</div>
+    <!-- BACK BUTTON -->
+
     <div class="back-home">
 
       <a href="index.html">
@@ -289,23 +557,33 @@
     <div class="footer-content">
 
       <div>
+
         <h3>Kigami Projects</h3>
 
         <p>
           Building sustainable communities through environmental action.
         </p>
+
       </div>
 
       <div class="footer-links">
+
         <a href="about.html">About</a>
+
         <a href="gallery.html">Gallery</a>
+
         <a href="volunteer.html">Volunteer</a>
+
         <a href="contact.html">Contact</a>
+
       </div>
 
       <div>
+
         <p>Email: admin@kigamiprojects.org</p>
+
         <p>Phone: +44 7894 668543</p>
+
       </div>
 
     </div>
@@ -321,3 +599,4 @@
 </body>
 
 </html>
+```
